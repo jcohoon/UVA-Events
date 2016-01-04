@@ -11,6 +11,7 @@
 		5EB9B1D31C36F1990075866D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB9B1D21C36F1990075866D /* ViewController.swift */; };
 		5EB9B1D61C36F1990075866D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EB9B1D41C36F1990075866D /* Main.storyboard */; };
 		5EB9B1D81C36F19A0075866D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EB9B1D71C36F19A0075866D /* Assets.xcassets */; };
+		5EB9B1E01C36FCB40075866D /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB9B1DF1C36FCB40075866D /* Events.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		5EB9B1D51C36F1990075866D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5EB9B1D71C36F19A0075866D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5EB9B1D91C36F19A0075866D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5EB9B1DF1C36FCB40075866D /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				5EB9B1D01C36F1990075866D /* AppDelegate.swift */,
 				5EB9B1D21C36F1990075866D /* ViewController.swift */,
+				5EB9B1DF1C36FCB40075866D /* Events.swift */,
 				5EB9B1D41C36F1990075866D /* Main.storyboard */,
 				5EB9B1D71C36F19A0075866D /* Assets.xcassets */,
 				5EB9B1D91C36F19A0075866D /* Info.plist */,
@@ -132,6 +135,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EB9B1E01C36FCB40075866D /* Events.swift in Sources */,
 				5EB9B1D31C36F1990075866D /* ViewController.swift in Sources */,
 				5EB9B1D11C36F1990075866D /* AppDelegate.swift in Sources */,
 			);
