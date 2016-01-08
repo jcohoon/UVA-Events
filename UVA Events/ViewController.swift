@@ -9,13 +9,17 @@
 import UIKit
 
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var events = [Event]()
     @IBOutlet weak var eventSummaryLabel: UILabel!
 
-    @IBOutlet weak var eventsTableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var eventDateTimeLabel: UILabel!
+    
+    @IBOutlet weak var eventDescriptionLabel: UILabel!
+
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return events.count
     }
@@ -28,16 +32,17 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     
-    var valueToPass:String!
-    
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-        eventSummaryLabel.text = "hi"
+/*    var valueToPass:String!
+*/    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        eventSummaryLabel.text = events[indexPath.row].name
+        eventDescriptionLabel.text = events[indexPath.row].description
         // Get Cell Label
-        let indexPath = eventsTableView.indexPathForSelectedRow;
+/*        let indexPath = eventsTableView.indexPathForSelectedRow;
         let currentCell = eventsTableView.cellForRowAtIndexPath(indexPath!) as UITableViewCell!;
         
         valueToPass = currentCell.textLabel!.text
-        
+ */
     }
     
     
