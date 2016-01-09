@@ -29,6 +29,8 @@ class Event {
     var name: String?
     var description: String?
     var html_url: String?
+
+    // *** need to add start, stop times, image url, cost, and probably more
     
     init(json: NSDictionary) {
         self.name = (json["summary"] as? String)!.decodeEnt()

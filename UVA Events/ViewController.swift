@@ -55,6 +55,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 if let json = try NSJSONSerialization.JSONObjectWithData(JSONData, options: NSJSONReadingOptions.AllowFragments) as? NSDictionary {
                     if let bwEventListArray = json["bwEventList"] as? NSDictionary {
                         if let eventsArray = bwEventListArray["events"] as? [NSDictionary] {
+                            
+                            // *** need to get event start and stop times and dates (as dictionaries?), xproperties:X-BEDEWORK-IMAGE urls, cost and probably more for each event
+                            
                             for item in eventsArray {
                                 events.append(Event(json: item))
                             }
@@ -64,15 +67,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             } catch let error as NSError {
                 print(error.localizedDescription)
             }
-            
-            // get data from readability api parsing of event url
-            let url = NSURL(string: "https://www.readability.com/api/content/v1/parser?url=http://explore.lib.virginia.edu/exhibits/show/flowerdewhundredfp&token=\(PLACEHOLDERFORREADABILITYDOTCOMAPITOKEN)")
-            
-            let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
-                print(NSString(data: data!, encoding: NSUTF8StringEncoding))
-            }
-            
-            task.resume()
         }
         
     }
