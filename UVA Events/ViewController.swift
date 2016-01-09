@@ -49,7 +49,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         //fetch JSON feed
         let eventsURL = NSURL(string: "http://calendar.virginia.edu/webcache/v1.0/jsonDays/90/list-json-Main/%28catuid%21%3D%278a7a83f4-3a110d79-013a-1ea6fa11-00007e3d%27%26catuid%21%3D%278a7a83f4-3764ec3f-0137-8584da9b-000008fd%27%26catuid%21%3D%278a7a83f4-36cb0460-0137-4c4a353a-00000470%27%26catuid%21%3D%278a7a83f4-374d2f1c-0137-6135c705-000003b8%27%29/no--object.json")
         
-        //
+        // build dictionary from json data and then create events array
         if let JSONData = NSData(contentsOfURL: eventsURL!) {
             do {
                 if let json = try NSJSONSerialization.JSONObjectWithData(JSONData, options: NSJSONReadingOptions.AllowFragments) as? NSDictionary {
@@ -64,7 +64,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             } catch let error as NSError {
                 print(error.localizedDescription)
             }
+            
+            // get data from readability api parsing of event url
+            let url = NSURL(string: "https://www.readability.com/api/content/v1/parser?url=http://explore.lib.virginia.edu/exhibits/show/flowerdewhundredfp&token=\(PLACEHOLDERFORREADABILITYDOTCOMAPITOKEN)")
+            
+            let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
+                print(NSString(data: data!, encoding: NSUTF8StringEncoding))
+            }
+            
+            task.resume()
         }
+        
     }
 
     override func didReceiveMemoryWarning() {
