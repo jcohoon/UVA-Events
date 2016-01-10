@@ -52,18 +52,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // build dictionary from json data and then create events array
         if let JSONData = NSData(contentsOfURL: eventsURL!) {
             do {
-                if let json = try NSJSONSerialization.JSONObjectWithData(JSONData, options: NSJSONReadingOptions.AllowFragments) as? NSDictionary {
-                    if let bwEventListArray = json["bwEventList"] as? NSDictionary {
-                        if let eventsArray = bwEventListArray["events"] as? [NSDictionary] {
-                            
+                let json = try NSJSONSerialization.JSONObjectWithData(JSONData, options: NSJSONReadingOptions.AllowFragments)
+                    let bwEventListArray = json as? NSDictionary
+                
+                // succesfully accessing super-nested values
+                print(bwEventListArray!["bwEventList"]!["events"]!![0]["xproperties"]!![4]["X-BEDEWORK-IMAGE"]!!["values"]!!["text"])
+
                             // *** need to get event start and stop times and dates (as dictionaries?), xproperties:X-BEDEWORK-IMAGE urls, cost and probably more for each event
-                            
-                            for item in eventsArray {
-                                events.append(Event(json: item))
+                            let eventsArray = bwEventListArray!["bwEventList"]!["events"] as? [NSDictionary]
+                            for item in eventsArray! {events.append(Event(json: item))
                             }
-                        }
-                    }
-                }
             } catch let error as NSError {
                 print(error.localizedDescription)
             }
