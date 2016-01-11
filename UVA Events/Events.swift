@@ -29,6 +29,9 @@ class Event {
     var name: String?
     var description: String?
     var html_url: String?
+    var image_url: String?
+    var datetime: NSDate?
+    
 
     // *** need to add start, stop times, image url, cost, and probably more
     
@@ -36,5 +39,11 @@ class Event {
         self.name = (json["summary"] as? String)!.decodeEnt()
         self.description = (json["description"] as? String)!.decodeEnt()
         self.html_url = json["link"] as? String
+       
+        // problem is that not all entries have "X-BEDEWORK-IMAGE", they're not always the 4th entry
+            self.image_url = json["xproperties"]![4]["X-BEDEWORK-IMAGE"]!!["values"]!!["text"] as? String
+        
+        print(image_url)
+        
     }
 }
