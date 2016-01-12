@@ -56,7 +56,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     let bwEventListArray = json as? NSDictionary
                 
                 // succesfully accessing super-nested values
-                print(bwEventListArray!["bwEventList"]!["events"]!![0]["xproperties"]!![4]["X-BEDEWORK-IMAGE"]!!["values"]!!["text"])
+//                print(bwEventListArray!["bwEventList"]!["events"]!![0]["xproperties"]!![4]["X-BEDEWORK-IMAGE"]!!["values"]!!["text"])
 
                             // *** need to get event start and stop times and dates (as dictionaries?), xproperties:X-BEDEWORK-IMAGE urls, cost and probably more for each event
                             let eventsArray = bwEventListArray!["bwEventList"]!["events"] as? [NSDictionary]
