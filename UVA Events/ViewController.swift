@@ -41,7 +41,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             eventSummaryLabel.text = events[nextIndexPath.row].name
             eventDescriptionLabel.text = events[nextIndexPath.row].description
             
-            /* WIP
+/* WIP
+            
             let imgURL = NSURL(string: "\(events[nextIndexPath.row].image_url)")
             if let imageData = NSData(contentsOfURL: imgURL!) {
                 do {
@@ -52,10 +53,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 }
             }
             
-            */
-            
-            
-           
+*/
             
             
             
@@ -76,8 +74,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 let json = try NSJSONSerialization.JSONObjectWithData(JSONData, options: NSJSONReadingOptions.AllowFragments)
                     let bwEventListArray = json as? NSDictionary
     
-
-                            // *** need to get event start and stop times and dates (as dictionaries?), xproperties:X-BEDEWORK-IMAGE urls, cost and probably more for each event
                             let eventsArray = bwEventListArray!["bwEventList"]!["events"] as? [NSDictionary]
                             for item in eventsArray! {events.append(Event(json: item))
                             }
