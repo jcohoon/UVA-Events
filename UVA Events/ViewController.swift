@@ -20,6 +20,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet weak var eventDescriptionLabel: UILabel!
 
+    @IBOutlet weak var eventImage: UIImageView!
+    
     // set number of rows in table to number of events
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return events.count
@@ -38,6 +40,25 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if let nextIndexPath = context.nextFocusedIndexPath {
             eventSummaryLabel.text = events[nextIndexPath.row].name
             eventDescriptionLabel.text = events[nextIndexPath.row].description
+            
+            /* WIP
+            let imgURL = NSURL(string: "\(events[nextIndexPath.row].image_url)")
+            if let imageData = NSData(contentsOfURL: imgURL!) {
+                do {
+                    let imageData: NSData = try NSData(contentsOfURL: imgURL!)!
+                    eventImage.image = UIImage(data:imageData)
+                } catch let error as NSError {
+                    print(error.localizedDescription)
+                }
+            }
+            
+            */
+            
+            
+           
+            
+            
+            
         }
     }
 
@@ -54,9 +75,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             do {
                 let json = try NSJSONSerialization.JSONObjectWithData(JSONData, options: NSJSONReadingOptions.AllowFragments)
                     let bwEventListArray = json as? NSDictionary
-                
-                // succesfully accessing super-nested values
-//                print(bwEventListArray!["bwEventList"]!["events"]!![0]["xproperties"]!![4]["X-BEDEWORK-IMAGE"]!!["values"]!!["text"])
+    
 
                             // *** need to get event start and stop times and dates (as dictionaries?), xproperties:X-BEDEWORK-IMAGE urls, cost and probably more for each event
                             let eventsArray = bwEventListArray!["bwEventList"]!["events"] as? [NSDictionary]

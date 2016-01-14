@@ -49,33 +49,14 @@ class Event {
         self.start_time = formatter.dateFromString((json["start"]!["datetime"] as? String)!)
         self.end_time = formatter.dateFromString((json["end"]!["datetime"] as? String)!)
 
-        // problem is that not all entries have "X-BEDEWORK-IMAGE", they're not always the 4th entry
+        // problem was that not all entries have "X-BEDEWORK-IMAGE" and they do exist they're not always at the same index
+        // alternate solution is finding index of X-BEDEWORK-IMAGE first?
         
-        // ¿solution is finding index of X-BEDEWORK-IMAGE first?
-        
-        // ********  i'm so close here it seems. valueForKeyPath has found the right value but it retains the empty, wrong values as well
-        let imgIDX = (json["xproperties"]!.valueForKeyPath("X-BEDEWORK-IMAGE.values.text"))!
-        print(imgIDX)
-//        let imgIDX = (json["xproperties"]!.valueForKeyPath("X-BEDEWORK-IMAGE.values.text"))! as! Array<String>
-        let imgIDX2 = imgIDX as! Array<String>
-        print(imgIDX2)
-        for item in imgIDX2 {
-            if item != ""{
-                self.image_url = item
+        let imgURLIndex = ((json["xproperties"]!.valueForKeyPath("X-BEDEWORK-IMAGE.values.text"))! as! Array<AnyObject>).filter { $0 is String }
+        if imgURLIndex.count == 1 {
+            if let imgURLString = imgURLIndex[0] as? String {
+                self.image_url = imgURLString
             }
-        }
-//        let imgIDX3 = imgIDX2.filteredArrayUsingPredicate(format: "name contains [c] %@")
-
-//            ).filteredArrayUsingPredicate(format: "name contains[c] %@")
-//        let keysToRemove = imgIDX.keys.array.filter { imgIDX[$0]! !== nil }
-
-//        self.image_url = (imgIDX as! [NSArray])[0] as? String
-        print(imgIDX)
-//            self.image_url = json["xproperties"]![(json["xproperties"] as! Array).indexOf("X-BEDEWORK-IMAGE")!]!["X-BEDEWORK-IMAGE"]!!["values"]!!["text"] as? String
-//        let imgIdx: Int = (json[14] as! Array).indexOf("X-BEDEWORK-IMAGE")!
-//        self.image_url = json["xproperties"]![(json["xproperties"]?.indexOfObject("X-BEDEWORK-IMAGE"))!]!["X-BEDEWORK-IMAGE"]!!["values"]!!["text"] as? String
-        
-//        print(image_url)
-        
+        }        
     }
 }
