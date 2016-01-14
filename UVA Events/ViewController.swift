@@ -41,19 +41,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             eventSummaryLabel.text = events[nextIndexPath.row].name
             eventDescriptionLabel.text = events[nextIndexPath.row].description
             
-/* WIP
+//* WIP
             
-            let imgURL = NSURL(string: "\(events[nextIndexPath.row].image_url)")
-            if let imageData = NSData(contentsOfURL: imgURL!) {
+            if let imgURL = NSURL(string: events[nextIndexPath.row].image_url!) {
                 do {
-                    let imageData: NSData = try NSData(contentsOfURL: imgURL!)!
+                    let imageData: NSData = try NSData(contentsOfURL: imgURL)!
                     eventImage.image = UIImage(data:imageData)
                 } catch let error as NSError {
                     print(error.localizedDescription)
                 }
             }
             
-*/
+//*/
             
             
             
