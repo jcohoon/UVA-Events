@@ -39,10 +39,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, didUpdateFocusInContext context: UITableViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
         if let nextIndexPath = context.nextFocusedIndexPath {
             eventSummaryLabel.text = events[nextIndexPath.row].name
-            e   ventDescriptionLabel.text = events[nextIndexPath.row].description
+            eventDescriptionLabel.text = events[nextIndexPath.row].description
             
 //* WIP
-            
+            print(events[nextIndexPath.row].image_url)
             if let imgURL = NSURL(string: events[nextIndexPath.row].image_url!) {
                 do {
                     let imageData: NSData = try NSData(contentsOfURL: imgURL)!

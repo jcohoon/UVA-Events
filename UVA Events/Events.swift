@@ -29,7 +29,7 @@ class Event {
     var name: String?
     var description: String?
     var html_url: String?
-    var image_url: String?
+    var image_url: String? = "http://www.virginia.edu/colp/images/originals/spacer.png"
     var start_time: NSDate?
     var end_time: NSDate?
     
@@ -57,6 +57,8 @@ class Event {
             if let imgURLString = imgURLIndex[0] as? String {
                 self.image_url = imgURLString
             }
-        }        
+        }
+        
+    print(self.image_url)
     }
 }
