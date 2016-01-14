@@ -55,9 +55,7 @@ class Event {
         let imgURLIndex = ((json["xproperties"]!.valueForKeyPath("X-BEDEWORK-IMAGE.values.text"))! as! Array<AnyObject>).filter { $0 is String }
         if imgURLIndex.count == 1 {
             if let imgURLString = imgURLIndex[0] as? String {
-                let imgSURL = imgURLString.stringByReplacingOccurrencesOfString("http:", withString: "https:", options: NSStringCompareOptions.LiteralSearch, range: nil)
-
-                self.image_url = imgSURL
+                self.image_url = imgURLString
             }
         }        
     }

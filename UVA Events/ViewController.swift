@@ -39,7 +39,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, didUpdateFocusInContext context: UITableViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
         if let nextIndexPath = context.nextFocusedIndexPath {
             eventSummaryLabel.text = events[nextIndexPath.row].name
-            eventDescriptionLabel.text = events[nextIndexPath.row].description
+            e   ventDescriptionLabel.text = events[nextIndexPath.row].description
             
 //* WIP
             
