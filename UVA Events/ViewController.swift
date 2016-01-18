@@ -13,14 +13,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var events = [Event]()
     @IBOutlet weak var eventSummaryLabel: UILabel!
-
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var eventDateTimeLabel: UILabel!
-    
     @IBOutlet weak var eventDescriptionLabel: UILabel!
-
     @IBOutlet weak var eventImage: UIImageView!
+    @IBOutlet weak var eventCostLabel: UILabel!
     
     // set number of rows in table to number of events
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -31,7 +28,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         cell.textLabel?.text = events[indexPath.row].name
-        cell.detailTextLabel?.text = events[indexPath.row].description
+// can probably be removed
+//        cell.detailTextLabel?.text = events[indexPath.row].description
         return cell
     }
 
@@ -40,9 +38,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if let nextIndexPath = context.nextFocusedIndexPath {
             eventSummaryLabel.text = events[nextIndexPath.row].name
             eventDescriptionLabel.text = events[nextIndexPath.row].description
-            
-//* WIP
-            print(events[nextIndexPath.row].image_url)
+            eventCostLabel.text = events[nextIndexPath.row].cost
+
+            // grab the image from the link and set the imageview to that image
             if let imgURL = NSURL(string: events[nextIndexPath.row].image_url!) {
                 do {
                     let imageData: NSData = try NSData(contentsOfURL: imgURL)!
@@ -51,11 +49,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     print(error.localizedDescription)
                 }
             }
-            
-//*/
-            
-            
-            
         }
     }
 

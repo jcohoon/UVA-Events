@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="40" sectionFooterHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="ceO-8p-NLU" userLabel="tableView">
-                                <rect key="frame" x="50" y="40" width="900" height="1030"/>
+                                <rect key="frame" x="50" y="40" width="900" height="986"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="5be-hH-bP8">
@@ -60,12 +60,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="69d-aa-fLg">
-                                <rect key="frame" x="958" y="447" width="962" height="633"/>
+                                <rect key="frame" x="958" y="447" width="907" height="579"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HkD-nK-zM8">
+                                <rect key="frame" x="1516" y="40" width="349" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="eventCostLabel" destination="HkD-nK-zM8" id="0cg-ov-yfq"/>
                         <outlet property="eventDateTimeLabel" destination="BgZ-GT-x9n" id="Vbo-mr-Vww"/>
                         <outlet property="eventDescriptionLabel" destination="oND-x8-74V" id="1eM-V0-yzT"/>
                         <outlet property="eventImage" destination="69d-aa-fLg" id="Mrw-rJ-Vf5"/>
